@@ -1,0 +1,9 @@
+This code uses concepts of Structures,Switch statement and for loop with library functions-stdio.h,stlib.h
+and string.h.
+We have defined username and password as "Airlinr" and "Airline@fun".
+Firstly in void header the conditions and all the options are defined for the specific dates.
+Then we use structures and define the variables in it ,then we scan the dates for which a person wants
+to tavel for. We have an option to select the No.of tickets needed and for which flight.
+Similarly, it goes for return trip too.
+It gives us the summarry about your booking and the program ends.
+If the username and password is wrong it gives us the result as Invalid.
