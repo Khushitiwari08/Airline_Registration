@@ -1,0 +1,241 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void header()
+{
+    printf("\nFlights                Price   Seating Capacity    Available Seats\n");
+}
+void option1()
+{
+    printf("\nFlights                Price     Seating Capacity    Available Seats\n");
+    printf("1. Mumbai To Delhi        4,500        100                16\n");
+    printf("2. Mumbai To Banglore     4,500         75                 4\n");
+    printf("3. Mumbai To Singapore    35,000        100               24\n");
+
+}
+void option2()
+{
+    printf("\nFlight                     Price   Seating Capacity    Available Seats\n");
+    printf("4. Delhi To Banglore         3,300        100                   18\n");
+    printf("5. Delhi To Jaipur To Surat  6,000         75                   24\n");
+    printf("6. Delhi To  Istanbul        25,000       100                   65\n");
+
+}
+
+void option3()
+{
+    printf("\nFlight                      Price     Seating Capacity    Available Seats\n");
+    printf("7. Banglore To Hong Kong       26,000       100                   46\n");
+    printf("8. Banglore To Singapore       30,500        75                   16\n");
+    printf("9. Banglore To Paris           48,000       100                   85\n");
+
+}
+int choice()
+{
+
+}
+
+struct flight{
+    int ticket;
+    int price;
+};
+
+int main() {
+    struct flight book[10];
+    char user[50];
+    char  pw[50];
+    char adminuser[50]="Airline";
+    char adminpass[50]="Airline@fun";
+    int trip, date, date2, a, x, y;
+    float total;
+    char repeat;
+    printf("\nEnter username: ");
+    scanf("%s", &user);
+    printf("\nEnter password: ");
+    scanf("%s", &pw);
+    if (strcmp(user, adminuser)==0 && strcmp(pw, adminpass)==0)
+    {
+        printf("\nWelcome To Indigo Airlines");
+        printf("\nChoose if one way trip or roundtrip: ");
+        printf("\n1. One way trip \n2. Roundtrip\n");
+        scanf("\n%d", &trip);
+        printf("\nDate: ");
+        printf("\n1. 25 October 2022 \n2. 26 October 2022\n3. 27 october 2022(round trip not included)\n");
+        scanf("%d", &date);
+        switch (trip) {
+        case 1: 
+        {
+            if (date==1){
+                printf("\n 25 October 2022\n");
+                option1();
+                printf("\nHow many tickets to book:");
+                scanf("%d", &x);
+                for (a=1; a<=x; a++){
+                    printf("\nPlease select which flight to book: ");
+                    scanf("%d", &book[a].ticket);
+                  break;
+                }
+            }
+            else if (date==2){
+            printf("\n26 October 2022\n");
+            option2();
+            printf("\nHow many tickets to book:");
+            scanf("%d", &x);
+            for (a=1; a<=x; a++){
+                    printf("\nPlease select which flight to book: ");
+                    scanf("%d", &book[a].ticket);}
+}
+            else if (date==3){
+                printf("\n27 october 2022\n");
+                option3();
+                printf("\nHow many tickets to book?: ");
+                scanf("%d", &x);
+                for (a=1; a<=x; a++){
+                    printf("\nPlease select which flight to book: ");
+                    scanf("%d", &book[a].ticket);}
+            }
+              
+            else printf("\nInvalid");
+            break;
+        }
+
+        case 2:
+          {
+            if (date==1){
+                printf("\n25 october 2022\n");
+              option1();
+                printf("\nChoose date of return: \n1.28 October 2022\n2.29 October 2022\n3.30 October 2022");
+                scanf("%d", &date2);
+                printf("\nHow many tickets to book (excluding the return trip)?: ");
+                scanf("%d", &x);
+                for (a=1; a<=x; a++)
+                {
+                    printf("\nPlease select which flight to book: ");
+                    scanf("%d", &book[a].ticket);
+                    if (date2==1){
+                    switch (book[a].ticket)
+                    {
+                        case 1: 
+                        {
+                            printf("\nDetails for return trip");
+                            header();
+                            printf("Delhi To Mumbai        4,500        100       8\n"); 
+                            break;
+                        } 
+                        case 2: 
+                        {
+                            printf("\nDetails for return trip");
+                            header();
+                            printf(" Banglore To Mumbai     4,500       75         0\n"); 
+                            break;
+                        }
+                        case 3: 
+                        {
+                            printf("\nDetails for return trip");
+                            header();
+                            printf("Singapore To Mumbai    35,000       100         46\n"); 
+                            break;
+                        }
+                        default: 
+                        break;
+                    }
+                    }
+                    else if (date2==2) {
+                          printf("26 October 2022");
+                      option2();
+                       printf("\nChoose date of return: \n1.28 October 2022\n2.29 October 2022\n3.30 October 2022");
+                scanf("%d", &date2);
+                         
+                        switch (book[a].ticket){
+                        case 1: 
+                        {   printf("\nDetails for return trip");
+                            header();
+                            printf("\nBanglore To delhi     5,000       100           45"); 
+                            break;
+                        }
+                        case 2: 
+                        {   printf("\nDetails for return trip");
+                            header();
+                            printf("\nJaipur To Delhi       3,544         75          67"); 
+                            break;
+                        }
+                        case 3: 
+                        {   printf("\nDetails for return trip");
+                            header();
+                            printf("\nIstanbul To Delhi      33,00        250         46"); 
+                            break;
+                        }
+                        default: 
+                          break;}
+                    }
+                    else {
+                    printf("\nInvalid"); 
+                    return 0;
+                    }
+                }
+
+            }
+
+            else if (date==2)
+            {
+
+            printf("\n26 October 2022\n");
+            option2();
+            printf("\nHow many tickets to book?: ");
+            scanf("%d", &x);
+            for (a=1; a<=x; a++)
+                {
+                    printf("\nPlease select which flight to book: ");
+                    scanf("%d", &book[a].ticket);
+                }
+
+            }
+            else if (date==3)
+            {
+                printf("\n27 October 2022\n");
+                option3();
+                printf("\nHow many tickets to book?: ");
+                scanf("%d", &x);
+                for (a=1; a<=x; a++)
+                {
+                    printf("\nPlease select which flight to book: ");
+                    scanf("%d", &book[a].ticket);
+                }
+            }
+
+            else printf("\nInvalid");
+            break;
+                break;
+            }
+            default:
+             break;
+        }
+
+        printf("\n");
+
+    printf("\nSummary: ");
+    for (a=1; a<=x; a++)
+    {
+    printf("\nDetails of Ticket no. [%d]", a);
+    printf("\nFlight no. [%d]\n", book[a].ticket);
+
+    }
+
+    total=book[a].price;
+    printf("\nTotal number of tickets: %d\n", x);
+      printf("\n Your Tickets Have Been Booked");
+      printf("\n For Payment Opt For Our Payu");
+      printf("\n");
+      printf("\n---------------------------------------\n");
+      printf("\n\n");
+      printf("\n *Thank You And Have A safe Journey*");
+}
+
+    else 
+    {
+    printf("\nInvalid login");
+    }   
+
+    return 0;
+}
